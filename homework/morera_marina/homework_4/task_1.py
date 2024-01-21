@@ -6,7 +6,7 @@ print('Последний элемент', my_dict['tuple'][-1])
 my_dict['list'].append(0)
 my_dict['list'].pop(2)
 new_dict = eval(my_dict['dict'])
-new_dict['i am a tuple'] = 'nope'
+new_dict[('i am a tuple',)] = 'nope'
 new_dict.pop("size", "small")
 my_dict['dict'] = str(new_dict)
 my_dict['set'].add("Night")
