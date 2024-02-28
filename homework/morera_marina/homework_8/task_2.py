@@ -5,7 +5,9 @@ def fib(n):
         a, b = b, a + b
 
 
-fib_list = list(fib(100000))
+count = 1
 indexes = [5, 200, 1000, 100000]
-for i in indexes:
-    print(fib_list[i - 1])
+for i in fib(100000):
+    if count in indexes:
+        print(i)
+    count += 1
