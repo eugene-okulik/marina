@@ -6,12 +6,13 @@ PRICE_LIST = '''тетрадь 50р
 пенал 300р
 рюкзак 500р'''
 
-list_new = PRICE_LIST.split('\n')
 
-prices_dict = {}
-for item in list_new:
-    name, price_str = item.split()
-    price = int(price_str[:-1])
-    prices_dict[name] = price
+def price_list(p_list):
+    list_new = p_list.split('\n')
+    for item in list_new:
+        name, price_str = item.split()
+        price = int(price_str[:-1])
+        yield name, price
 
-print(prices_dict)
+
+print(dict(list(price_list(PRICE_LIST))))
