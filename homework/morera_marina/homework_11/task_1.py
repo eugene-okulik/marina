@@ -49,7 +49,7 @@ for i in scholl_books:
     if i.flag:
         print(
             f'Название: {i.name_book}, Автор: {i.author}, страниц: {i.number_page}, '
-            f'предмет: {i.subject}, класс: {i.school_class}, зарезервирована')
+            f'предмет: {i.subject}, класс: {i.school_class},  зарезервирована')
     else:
         print(f'Название: {i.name_book}, Автор: {i.author}, страниц: {i.number_page}, '
               f'предмет: {i.subject}, класс: {i.school_class}')
