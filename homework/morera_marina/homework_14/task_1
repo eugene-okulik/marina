@@ -1,0 +1,62 @@
+-- 1
+INSERT INTO students (name, second_name) VALUES ('Марина', 'Питонова')
+
+-- 2
+INSERT INTO books  (title, taken_by_student_id) VALUES ('Биология', 913)
+INSERT INTO books  (title, taken_by_student_id) VALUES ('Питон для продвинутых', 913)
+
+-- 3
+INSERT INTO `groups` (groups.title) VALUES ('Питон для продвинутых')
+
+UPDATE students SET group_id = 847 where id = 913
+
+-- 4
+INSERT subjets  (title) VALUES ('Мастер-класс Питон')
+INSERT subjets  (title) VALUES ('Питон новый')
+
+-- 5
+INSERT INTO lessons (title, subject_id) VALUES ('Вводное занятие', 1138)
+INSERT INTO lessons (title, subject_id) VALUES ('Контрольная', 1137)
+
+-- 6
+INSERT INTO marks (value, lesson_id, student_id) VALUES (5, 3017, 913)
+INSERT INTO marks (value, lesson_id, student_id) VALUES (3, 3016, 913)
+
+
+-- 1 пункт
+select * FROM marks m
+where student_id = 913
+
+-- 2 пункт
+SELECT * FROM books b
+WHERE taken_by_student_id =913
+
+-- 3 пункт
+SELECT DISTINCT s.name, s.second_name, g.title, b.title, s2.title, l.title, m.value
+FROM students s
+JOIN books b
+on s.id = b.taken_by_student_id
+JOIN `groups` g
+on s.group_id=g.id and s.id =913
+JOIN marks m
+on s.id = m.student_id
+JOIN lessons l
+on l.id=m.lesson_id
+JOIN subjets s2
+on l.subject_id = s2.id
+where s.id=913
+
+-- полный вывод для себя
+SELECT DISTINCT *
+FROM students s
+JOIN books b
+on s.id = b.taken_by_student_id
+JOIN `groups` g
+on s.group_id=g.id and s.id =913
+JOIN marks m
+on s.id = m.student_id
+JOIN lessons l
+on l.id=m.lesson_id
+JOIN subjets s2
+on l.subject_id = s2.id
+where s.id=913
