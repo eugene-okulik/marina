@@ -105,7 +105,7 @@ cursor.execute(f'select * FROM books where taken_by_student_id = {student_id}')
 print(cursor.fetchall())
 
 cursor = db.cursor(dictionary=True)
-query = f'''SELECT DISTINCT s.name, s.second_name, g.title, b.title, s2.title, l.title, m.value
+query = '''SELECT DISTINCT s.name, s.second_name, g.title, b.title, s2.title, l.title, m.value
 FROM students s
 JOIN books b
 on s.id = b.taken_by_student_id
