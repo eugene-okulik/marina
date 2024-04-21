@@ -36,8 +36,8 @@ on l.subject_id = s2.id''')
 
 data_db = cursor.fetchall()
 data_as_list = [list(row) for row in data_db]
-matched_data = []
 
+matched_data = []
 for csv_row in data_csv[1:]:
     is_match = False
     for db_row in data_as_list:
@@ -48,3 +48,5 @@ for csv_row in data_csv[1:]:
         matched_data.append(csv_row)
 
 print(f'Следующих данных нет в бд: {matched_data}')
+
+db.close()
