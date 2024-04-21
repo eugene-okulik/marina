@@ -20,8 +20,8 @@ with open('../../eugene_okulik/Lesson_16/hw_data/data.csv', newline='') as csv_f
         data_csv.append(csv_row)
 
 cursor = db.cursor()
-cursor.execute('''SELECT DISTINCT s.name, s.second_name, g.title as group_title, b.title as book_title, 
-s2.title as subject_title, l.title as lesson_title, m.value as mark_value 
+cursor.execute('''SELECT DISTINCT s.name, s.second_name, g.title as group_title, b.title as book_title,
+s2.title as subject_title, l.title as lesson_title, m.value as mark_value
 FROM students s
 JOIN books b
 on s.id = b.taken_by_student_id
