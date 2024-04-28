@@ -5,7 +5,7 @@ file_path = input('Введите полный путь к папке, в кот
 dir_list = os.listdir(file_path)
 print(dir_list)
 text_file = input('Введите текст который нужно найти в файлах')
-# text_file = 'hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-4.0.3.jar!/:na]'
+# text_file = 'hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)'
 
 for file_name in dir_list:
     file_text = os.path.join(file_path, file_name)
