@@ -74,7 +74,6 @@ def patch_object():
 
 def delete_object():
     post_id = new_post()
-    headers = {'Content-Type': 'application/json'}
     response = requests.delete(f'https://api.restful-api.dev/objects/{post_id}')
     print(response.json())
     assert response.status_code == 200, 'Status code is incorrect'
