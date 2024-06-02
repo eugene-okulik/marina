@@ -11,7 +11,6 @@ class Endpoint:
     def check_response_title_is_correct(self, title):
         assert self.json['title'] == title
 
-
     @allure.step('Check that response is 200')
     def check_that_status_is_200(self):
         assert self.response.status_code == 200

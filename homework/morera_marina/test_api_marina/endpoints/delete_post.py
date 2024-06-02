@@ -7,5 +7,5 @@ class DeletePost(Endpoint):
     @allure.step('Delete a post')
     def delete_post(self, post_id):
         self.response = requests.delete(
-        f'{self.url}/{post_id}'
+            f'{self.url}/{post_id}'
         )
