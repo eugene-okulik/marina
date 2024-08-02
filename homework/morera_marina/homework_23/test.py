@@ -32,9 +32,9 @@ def test_form(driver):
     first_name = 'Marina'
     last_name = "Mar"
     email_field = 'name@test.com'
-    mobile = '3243565342'
-    subjects = 'python'
-    address = 'russia'
+    # mobile = '3243565342'
+    # subjects = 'python'
+    # address = 'russia'
     driver.get('https://demoqa.com/automation-practice-form')
     name = driver.find_element(By.ID, 'firstName')
     name.send_keys(first_name)
