@@ -4,7 +4,6 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
 import pytest
 from time import sleep
 
@@ -45,25 +44,16 @@ def test_form(driver):
     email.send_keys(email_field)
     select = driver.find_element(By.ID, 'state')
     select.click()
-    # Используем явное ожидание для видимости элемента
     select = WebDriverWait(driver, 10).until(
         EC.visibility_of_element_located((By.ID, 'state'))
     )
-
-    # Прокрутка до элемента
     driver.execute_script("arguments[0].scrollIntoView(true);", select)
-
-    # Используем JavaScript для клика, если обычный клик не работает
     driver.execute_script("arguments[0].click();", select)
-
     state_option = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, "//div[@id='state']//div[text()='Haryana']"))
     )
-
     driver.execute_script("arguments[0].scrollIntoView(true);", state_option)
     driver.execute_script("arguments[0].click();", state_option)
-
-    sleep(3)
 
 
 def test_enabled_and_select(driver):
