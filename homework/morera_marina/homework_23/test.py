@@ -11,10 +11,8 @@ from time import sleep
 @pytest.fixture()
 def driver():
     chrome_driver = webdriver.Chrome()
-    sleep(3)
     chrome_driver.maximize_window()
     yield chrome_driver
-    sleep(3)
 
 
 def test_name(driver):
@@ -23,7 +21,6 @@ def test_name(driver):
     search_input = driver.find_element(By.NAME, 'text_string')
     search_input.send_keys(input_data)
     search_input.send_keys(Keys.ENTER)
-    sleep(3)
     result_text = driver.find_element(By.ID, 'result-text')
     assert result_text.text == input_data
 
@@ -62,7 +59,6 @@ def test_form(driver):
     subjects_field = driver.find_element(By.ID, 'subjectsInput')
     subjects_field.send_keys(subjects)
     driver.find_element(By.CLASS_NAME, "subjects-auto-complete__menu").click()
-    sleep(1)
     driver.find_element(By.XPATH, "//label[@for='hobbies-checkbox-1']").click()
     address_field = driver.find_element(By.ID, 'currentAddress')
     address_field.send_keys(address)
@@ -103,7 +99,6 @@ def test_select(driver):
     language = 'Python'
     dropdown_year.select_by_visible_text(language)
     driver.find_element(By.ID, 'submit-id-submit').click()
-    sleep(2)
     result_text = driver.find_element(By.ID, 'result-text')
     assert result_text.text == language
 
