@@ -1,7 +1,7 @@
 from playwright.sync_api import Page
 
 
-def test_check_tabs(page: Page):
+def test_check_color(page: Page):
     page.goto('https://demoqa.com/dynamic-properties')
     button = page.locator('#colorChange')
     page.locator(".mt-4.text-danger.btn.btn-primary").wait_for()
