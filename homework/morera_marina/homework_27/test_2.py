@@ -10,4 +10,5 @@ def test_new_page(page: Page, context: BrowserContext):
     new_page = new_page_event.value
     result = new_page.locator('#result-text')
     expect(result).to_have_text('I am a new page in a new tab')
-
+    new_page.close()
+    expect(link).to_be_enabled()
