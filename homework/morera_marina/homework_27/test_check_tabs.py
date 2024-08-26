@@ -1,7 +1,7 @@
 from playwright.sync_api import Page, expect, BrowserContext
 
 
-def test_new_page(page: Page, context: BrowserContext):
+def test_check_tabs(page: Page, context: BrowserContext):
     page.on('dialog', lambda dialog: dialog.accept())
     page.goto('https://www.qa-practice.com/elements/new_tab/button')
     link = page.get_by_role('link', name='Click')
