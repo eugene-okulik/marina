@@ -21,14 +21,17 @@ def test_two(page: Page):
     def handle_route(route: Route):
         response = route.fetch()
         body = response.json()
-        body['productName'] = 'regregregergergrgergregrgregregrgeregr'
+        for item in body.get('body', {}).get('digitalMat', []):
+            if item.get('productName') == 'iPhone 15 Pro':
+                item['productName'] = 'айфончик'
         body = json.dumps(body)
         route.fulfill(
             response=response,
             body=body
         )
 
-    page.route('**/digitalmat/**', handle_route)
+    page.route('**/digital-mat?path=library/step0_iphone/digitalmat', handle_route)
     page.goto("https://www.apple.com/shop/buy-iphone")
     page.locator('text="iPhone 15 Pro &"').click()
     sleep(5)
+
