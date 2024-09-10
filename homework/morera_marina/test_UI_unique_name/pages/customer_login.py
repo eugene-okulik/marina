@@ -1,27 +1,25 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
+from playwright.sync_api import Page
+from playwright.sync_api import Expect
 
 class Customerlogin:
-    def __init__(self, driver):
-        self.driver = driver
+    def __init__(self, page: Page):
+        self.page = page
 
     def open_page(self):
-        self.driver.get('https://magento.softwaretestingboard.com/customer/account/create/')
+        self.page.goto('https://magento.softwaretestingboard.com/customer/account/create/')
 
     def registration_form(self, first, last, email, password, confirm_pas):
-        first_name = self.driver.find_element(By.ID, 'firstname')
-        last_name = self.driver.find_element(By.ID, 'lastname')
-        email_field = self.driver.find_element(By.ID, 'email_address')
-        password_field = self.driver.find_element(By.ID, 'password')
-        confirm_field = self.driver.find_element(By.ID, 'password-confirmation')
-        submit = self.driver.find_element(By.CLASS_NAME, 'submit')
-        first_name.send_keys(first)
-        last_name.send_keys(last)
-        email_field.send_keys(email)
-        password_field.send_keys(password)
-        confirm_field.send_keys(confirm_pas)
+        first_name = self.page.locator('firstname')
+        last_name = self.page.locator('lastname')
+        email_field = self.page.locator('email_address')
+        password_field = self.page.locator('password')
+        confirm_field = self.page.locator('password-confirmation')
+        submit = self.page.locator('submit')
+        first_name.fill(first)
+        last_name.fill(last)
+        email_field.fill(email)
+        password_field.fill(password)
+        confirm_field.fill(confirm_pas)
         submit.click()
 
     def check_success_text(self, expected_text):

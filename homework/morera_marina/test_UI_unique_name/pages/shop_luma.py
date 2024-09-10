@@ -1,12 +1,9 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
+from playwright.sync_api import Page
 
 
 class ShopLuma:
-    def __init__(self, driver):
-        self.driver = driver
+    def __init__(self, page:Page):
+        self.page = page
 
     def open_page(self):
         self.driver.get('https://magento.softwaretestingboard.com/collections/eco-friendly.html')

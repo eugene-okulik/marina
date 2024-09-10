@@ -1,19 +1,19 @@
 import pytest
-from pages.shop_luma import ShopLuma
-from pages.sales import Sales
-from pages.customer_login import Customerlogin
+from homework.morera_marina.test_UI_unique_name.pages.shop_luma import ShopLuma
+from homework.morera_marina.test_UI_unique_name.pages.sales import Sales
+from homework.morera_marina.test_UI_unique_name.pages.customer_login import Customerlogin
 
 
 @pytest.fixture()
-def shop_luma(driver):
-    return ShopLuma(driver)
+def shop_luma(page):
+    return ShopLuma(page)
 
 
 @pytest.fixture()
-def sales(driver):
-    return Sales(driver)
+def sales(page):
+    return Sales(page)
 
 
 @pytest.fixture()
-def login_page(driver):
-    return Customerlogin(driver)
+def login_page(page):
+    return Customerlogin(page)

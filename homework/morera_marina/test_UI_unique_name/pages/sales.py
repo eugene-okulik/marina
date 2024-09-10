@@ -1,15 +1,12 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.support import expected_conditions as EC
+from playwright.sync_api import Page
 
 
 class Sales:
-    def __init__(self, driver):
-        self.driver = driver
+    def __init__(self, page: Page):
+        self.page = page
 
     def open_page(self):
-        self.driver.get('https://magento.softwaretestingboard.com/sale.html')
+        self.page.goto('https://magento.softwaretestingboard.com/sale.html')
 
     def open_women_items(self, women_url):
         shop_women = self.driver.find_element(By.CLASS_NAME, 'more')
