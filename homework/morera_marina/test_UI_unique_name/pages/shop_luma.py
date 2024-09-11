@@ -6,16 +6,17 @@ class ShopLuma:
         self.page = page
 
     def open_page(self):
-        self.driver.get('https://magento.softwaretestingboard.com/collections/eco-friendly.html')
+        self.page.goto('https://magento.softwaretestingboard.com/collections/eco-friendly.html')
 
     def add_item_to_filter(self):
-        new = self.driver.find_element(By.XPATH, '//*[@id="narrow-by-list"]/div[9]')
+        new = self.page.locator('//div[@data-role="title" and text()="New"]')
         new.click()
-        yes = self.driver.find_element(By.XPATH, '//*[@id="narrow-by-list"]/div[9]/div[2]/ol/li[1]/a')
+        yes = self.page.locator('//div[@data-role="title" and text()="New"]/following-sibling::div[@data-role="content"]//a[contains(text(), "Yes")]')
         yes.click()
-        check_count = len(self.driver.find_elements(By.CLASS_NAME, 'product-image-container'))
-        total = (self.driver.find_element(By.ID, 'toolbar-amount')).text
-        number = int(total.split()[0])
+        check_count = self.page.locator('.product-image-container').count()
+        total = self.page.locator('xpath=//p[@id="toolbar-amount"]/span[@class="toolbar-number"]').inner_text()
+        number = int(total)
+
         assert check_count == number
 
     def add_item_to_compare(self):
