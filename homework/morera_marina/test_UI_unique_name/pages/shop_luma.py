@@ -33,12 +33,14 @@ class ShopLuma:
         assert item_text == compare_text
 
     def add_item_to_wishlist(self):
-        item = self.page.locator('.product-image-wrapper')
-        actions = ActionChains(self.driver)
-        actions.move_to_element(item).perform()
-        wishlist =  self.page.locator('.towishlist')
-        actions.click(wishlist).perform()
+        item = self.page.locator('.product-image-wrapper').nth(0)
+        item.hover()
+        wishlist = self.page.locator('.action.towishlist').nth(0)
+        wishlist.click()
 
     def check_wish_list_message_is(self, expected_text):
-        item_text = self.page.locator('.messages').inner_text()
-        assert item_text == expected_text
+        item_text = self.page.locator('.page.messages')
+        item_text.wait_for(state='visible', timeout=60000)
+        text = item_text.inner_text()
+        print('тест найденный',text, "exp", expected_text)
+        assert text == expected_text
