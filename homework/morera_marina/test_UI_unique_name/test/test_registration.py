@@ -1,6 +1,6 @@
 def test_auth(login_page):
     login_page.open_page()
-    login_page.registration_form('Test', 'Testov', 'pythos6@yandex.ru', 'privet!!@2222',
+    login_page.registration_form('Test', 'Testov', 'pythofd6@yandex.ru', 'privet!!@2222',
                                  'privet!!@2222')
     login_page.check_success_text('Thank you for registering with Main Website Store.')
 

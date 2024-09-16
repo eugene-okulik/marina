@@ -3,7 +3,7 @@ from time import sleep
 
 
 class ShopLuma:
-    def __init__(self, page:Page):
+    def __init__(self, page: Page):
         self.page = page
 
     def open_page(self):
@@ -43,5 +43,5 @@ class ShopLuma:
         item_text = self.page.locator('.page.messages')
         item_text.wait_for(state='visible', timeout=60000)
         text = item_text.inner_text()
-        print('тест найденный',text, "exp", expected_text)
+        print('тест найденный', text, "exp", expected_text)
         assert text == expected_text

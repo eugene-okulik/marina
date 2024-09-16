@@ -34,4 +34,3 @@ class Customerlogin:
     def exist_email_message_is(self, expected_text):
         email = self.page.locator('#email_address-error')
         assert email.inner_text() == expected_text
-
