@@ -12,7 +12,8 @@ class ShopLuma:
     def add_item_to_filter(self):
         new = self.page.locator('//div[@data-role="title" and text()="New"]')
         new.click()
-        yes = self.page.locator('//div[@data-role="title" and text()="New"]/following-sibling::div[@data-role="content"]//a[contains(text(), "Yes")]')
+        yes = self.page.locator('//div[@data-role="title" and text()="New"]/following-sibling::'
+                                'div[@data-role="content"]//a[contains(text(), "Yes")]')
         yes.click()
         check_count = self.page.locator('.product-image-container').count()
         total = self.page.locator('xpath=//p[@id="toolbar-amount"]/span[@class="toolbar-number"]').nth(1).inner_text()
