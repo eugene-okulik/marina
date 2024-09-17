@@ -1,12 +1,8 @@
-from playwright.sync_api import Page
+from homework.morera_marina.test_UI_unique_name.pages.base_page import BasePage
 
 
-class Sales:
-    def __init__(self, page: Page):
-        self.page = page
-
-    def open_page(self):
-        self.page.goto('https://magento.softwaretestingboard.com/sale.html')
+class Sales(BasePage):
+    page_url = '/sale.html'
 
     def open_women_items(self, women_url):
         shop_women = self.page.locator('text="Shop Women’s Deals"')
@@ -33,5 +29,4 @@ class Sales:
         compare = self.page.locator('.product-item-name').nth(0)
         compare.wait_for()
         text_compare = compare.inner_text()
-        print('text 1', text_compare, 'text2', text)
         assert text_compare == text

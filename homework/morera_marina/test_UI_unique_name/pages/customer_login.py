@@ -1,12 +1,8 @@
-from playwright.sync_api import Page
+from homework.morera_marina.test_UI_unique_name.pages.base_page import BasePage
 
 
-class Customerlogin:
-    def __init__(self, page: Page):
-        self.page = page
-
-    def open_page(self):
-        self.page.goto('https://magento.softwaretestingboard.com/customer/account/create/')
+class Customerlogin(BasePage):
+    page_url = '/customer/account/create/'
 
     def registration_form(self, first, last, email, password, confirm_pas):
         first_name = self.page.locator('#firstname')

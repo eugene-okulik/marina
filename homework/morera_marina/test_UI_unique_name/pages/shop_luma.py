@@ -1,13 +1,8 @@
-from playwright.sync_api import Page
-from time import sleep
+from homework.morera_marina.test_UI_unique_name.pages.base_page import BasePage
 
 
-class ShopLuma:
-    def __init__(self, page: Page):
-        self.page = page
-
-    def open_page(self):
-        self.page.goto('https://magento.softwaretestingboard.com/collections/eco-friendly.html')
+class ShopLuma(BasePage):
+    page_url = '/eco-friendly.html'
 
     def add_item_to_filter(self):
         new = self.page.locator('//div[@data-role="title" and text()="New"]')
