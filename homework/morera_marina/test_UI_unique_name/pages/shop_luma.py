@@ -1,8 +1,8 @@
 from homework.morera_marina.test_UI_unique_name.pages.base_page import BasePage
-
+from homework.morera_marina.test_UI_unique_name.locators.locators import Locators
 
 class ShopLuma(BasePage):
-    page_url = '/eco-friendly.html'
+    page_url = '/promotions/pants-all.html'
 
     def add_item_to_filter(self):
         new = self.page.locator('//div[@data-role="title" and text()="New"]')
@@ -17,13 +17,13 @@ class ShopLuma(BasePage):
         assert check_count == number
 
     def add_item_to_compare(self):
-        item = self.page.locator('.product-image-wrapper').nth(0)
+        item = self.page.locator(Locators.PRODUCT_IMAGE_WRAPPER).nth(0)
         item.hover()
-        compare = self.page.locator('.tocompare').nth(0)
+        compare = self.page.locator(Locators.COMPARE_BUTTON).nth(0)
         compare.wait_for(state='visible', timeout=60000)
         compare.click()
-        item_text = self.page.locator('.product-item-link').nth(0).inner_text()
-        compare_link = self.page.locator('//ol[@id="compare-items"]//li//strong/a')
+        item_text = self.page.locator(Locators.PRODUCT_ITEM_LINK).nth(0).inner_text()
+        compare_link = self.page.locator(Locators.COMPARE_ITEM_LINK)
         compare_link.wait_for(state='visible', timeout=60000)
         compare_text = compare_link.inner_text()
         assert item_text == compare_text
