@@ -1,4 +1,4 @@
-from playwright.sync_api import Page, Locator
+from playwright.sync_api import Page
 
 
 class BasePage:
@@ -13,5 +13,3 @@ class BasePage:
             self.page.goto(f'{self.base_url}{self.page_url}')
         else:
             raise NotImplementedError('Page can not be opened by URL for this page')
-
-

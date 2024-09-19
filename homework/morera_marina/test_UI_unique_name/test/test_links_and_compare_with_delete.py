@@ -5,9 +5,11 @@ def test_check_women_sales_url(sales):
 
 def test_check_title_jackets(sales):
     sales.open_page()
-    sales.open_jackets()
+    jackets = sales.open_jackets()
+    sales.check_jackets_title(jackets)
 
 
 def test_add_to_compare_and_delete_clothes(sales):
     sales.open_page()
-    sales.add_to_compare_and_delete()
+    added_item = sales.add_to_compare()
+    sales.delete_from_compare(added_item)
