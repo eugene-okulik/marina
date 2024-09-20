@@ -5,7 +5,7 @@ from homework.morera_marina.test_UI_unique_name.locators.locators import Locator
 class Sales(BasePage):
     page_url = '/sale.html'
 
-    def open_women_items(self, women_url):
+    def check_open_women_items_page(self, women_url):
         shop_women = self.page.locator(Locators.TEXT_WOMEN_DEALS)
         shop_women.click()
         assert self.page.url == women_url
@@ -30,6 +30,10 @@ class Sales(BasePage):
         compare.click()
         return item_text
 
+    def confirm_modal(self):
+        ok_button = self.page.locator(Locators.MODAL)
+        ok_button.click()
+
     def delete_from_compare(self, item_text):
         sale = self.page.locator(Locators.SALE).nth(0)
         sale.click()
@@ -37,3 +41,9 @@ class Sales(BasePage):
         compare.wait_for()
         text_compare = compare.inner_text()
         assert text_compare == item_text
+        self.page.locator(Locators.BUTTON_CLEAR).click()
+        self.confirm_modal()
+
+    def check_cleared_message(self, expected_text):
+        text = self.page.locator(Locators.MESSAGE_SUCCESS)
+        assert text.inner_text() == expected_text

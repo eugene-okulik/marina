@@ -24,3 +24,5 @@ class Locators:
     MESSAGE_SUCCESS = 'div.message-success'
     MESSAGE_ERROR = 'div.message-error'
     EMAIL_ERROR = '#email_address-error'
+    BUTTON_CLEAR = 'text="Clear All"'
+    MODAL = 'button.action-primary.action-accept'
