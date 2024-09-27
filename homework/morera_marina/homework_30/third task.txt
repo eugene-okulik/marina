@@ -1,0 +1,9 @@
+/dev/null  - символьные устройства
+/dev/zero - символьные устройства
+/dev/sda - не нашелся файл
+/dev/tty  - символьные устройства
+/root - каталоги 
+/etc/passwd - regular file 
+/proc/mounts - символьные ссылки
+/bin/ls - regular file
+/bin/zcat - /bin/zcat
