@@ -6,4 +6,3 @@ while True:
     requests.get('https://www.google.com/')
     print(datetime.now())
     sleep(2)
-    
