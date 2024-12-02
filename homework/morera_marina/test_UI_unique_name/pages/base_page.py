@@ -11,5 +11,11 @@ class BasePage:
     def open_page(self):
         if self.page_url:
             self.page.goto(f'{self.base_url}{self.page_url}')
+            popup = self.page.locator("div.fc-consent-root")
+            popup.wait_for(state='visible', timeout=60000)
+            self.page.locator("button.fc-button.fc-cta-consent.fc-primary-button").click()
         else:
             raise NotImplementedError('Page can not be opened by URL for this page')
+
+
+
