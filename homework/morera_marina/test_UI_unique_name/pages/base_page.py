@@ -16,6 +16,3 @@ class BasePage:
             self.page.locator("button.fc-button.fc-cta-consent.fc-primary-button").click()
         else:
             raise NotImplementedError('Page can not be opened by URL for this page')
-
-
-
